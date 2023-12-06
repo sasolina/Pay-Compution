@@ -1,0 +1,41 @@
+global check_continue, check_numeric, computepay
+
+
+def check_continue():
+    check_continue = input('do you wish to continue please specify (y) or (n): \n')
+    if check_continue == 'y' or check_continue == 'Y':
+        return()
+    elif check_continue == 'n' or check_continue == 'N':
+        quit()
+    else:
+        check_continue()
+def computepay(hours, rate):
+    value = ("how many hours do you work weekly?\n")
+    hours = check_numeric(value)
+    print(hours)
+
+    value = ("what is your hourly rate? \n")
+    rate = check_numeric(value)
+    print(value)
+
+    result = computepay(hours * rate)
+    print(f'your weekly pay is {result}')
+
+    rate = 10
+    hours = 40
+    pay = hours * rate
+    if hours > 40:
+        rate = 15
+    elif hours <= 40:
+        return(hours * rate)
+    else:  
+        return pay
+
+
+def check_numeric(value):
+    while True:
+        try:
+            return float(value)
+        except:
+            value = input('enter a numeric value: \n')
+
